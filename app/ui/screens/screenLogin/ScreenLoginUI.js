@@ -2,6 +2,7 @@ import { StackActions } from '@react-navigation/routers';
 import React, {useState} from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import NavigatorConstant from '../../../src/navigation/NavigatorConstant'
+import LandingDrawerNavigator from '../../../src/navigation/LandingDrawerNavigator'
 
 const ScreenLoginUI = ({navigation}) =>{
 
@@ -9,7 +10,7 @@ const ScreenLoginUI = ({navigation}) =>{
     const [pass, setPass] = useState('');
 
     const repLanding = () =>{
-        navigation.dispatch(StackActions.replace(NavigatorConstant.NAVIGATOR.LANDING_FLOW))
+        navigation.dispatch(StackActions.replace(NavigatorConstant.NAVIGATOR.LANDING_FLOW,LandingDrawerNavigator))
     }
 
     const navPassRec = () =>{

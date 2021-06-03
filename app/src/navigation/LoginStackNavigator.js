@@ -1,15 +1,18 @@
 import React from 'react'
+import {createStackNavigator} from '@react-navigation/stack';
 import NavigatorConstant from './NavigatorConstant';
-import ScreenLogin from '../../ui/screen/screenLogin/ScreenLogin';
-import ScreenRegister from '../../ui/screen/screenRegister/ScreenRegister';
-import ScreenPassRec from '../../ui/screen/screenPassRec/ScreenPassRec';
+import ScreenLogin from '../../ui/screens/screenLogin/ScreenLogin';
+import ScreenRegister from '../../ui/screens/screenRegister/ScreenRegister';
+import ScreenPassRec from '../../ui/screens/screenPassRec/ScreenPassRec';
 
-const LoginStackNavigator = ({Stack}) =>{
+const Stack = createStackNavigator();
+
+const LoginStackNavigator = () =>{
+
+    console.log(NavigatorConstant.LOGIN_STACK.LOGIN_SCREEN)
+
     return(
-        <Stack.Navigator
-            initialRouteName={NavigatorConstant.NAVIGATOR.LOGIN_FLOW}
-            mode='modal'
-            >
+        <Stack.Navigator>
             <Stack.Screen
             name={NavigatorConstant.LOGIN_STACK.LOGIN_SCREEN}
             component={ScreenLogin}

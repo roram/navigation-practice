@@ -3,12 +3,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import NavigatorConstant from './NavigatorConstant';
 import LoginStackNavigator from './LoginStackNavigator';
-import LandingStack from './LandingStackNavigator';
+import LandingDrawerNavigator from './LandingDrawerNavigator';
 import FirstStackNavigator from './FirstStackNavigator';
 import SecondStackNavigator from './SecondStackNavigator';
-// import ScreenLogin from '../../ui/screen/screenLogin/ScreenLogin';
-// import ScreenRegister from '../../ui/screen/screenRegister/ScreenRegister';
-// import ScreenPassRec from '../../ui/screen/screenPassRec/ScreenPassRec';
 
 const Stack = createStackNavigator();
 
@@ -16,11 +13,20 @@ const RootNavigator = () => {
 
     return(
         <NavigationContainer>
-            <LoginStackNavigator Stack = {Stack}/>
+            <Stack.Navigator
+            initialRouteName={NavigatorConstant.NAVIGATOR.LOGIN_FLOW}
+            >
+                <Stack.Screen
+                name={NavigatorConstant.NAVIGATOR.LOGIN_FLOW}
+                component={LoginStackNavigator}
+                />
+                <Stack.Screen
+                name={NavigatorConstant.NAVIGATOR.LANDING_FLOW}
+                component={LandingDrawerNavigator}
+                />
+            </Stack.Navigator>
         </NavigationContainer>
     );
 }
-
-//AppRegistry.registerComponent(NavigatorConstant.NAVIGATOR.LOGIN_FLOW, () => RootNavigator);
 
 export default RootNavigator;

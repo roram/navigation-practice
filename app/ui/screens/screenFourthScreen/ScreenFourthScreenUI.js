@@ -1,12 +1,28 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 const ScreenFourthScreen = () =>{
     return(
-        <View>
-            <Text>Screen Fourth Screen</Text>
+        <View
+        style={styles.viewContainer}
+        >
+            <Text
+            style={styles.fontTitle}
+            >Screen Fourth Screen</Text>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    viewContainer:{
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'deepskyblue'
+    },
+    fontTitle:{
+        fontSize:20
+    }
+})
 
 export default ScreenFourthScreen;

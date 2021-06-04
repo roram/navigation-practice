@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
-import ScreenSecondDetailUI from './ScreendetailSecondUI';
+import ScreenDetailSecondUI from './ScreenDetailSecondUI';
 
 export default class ScreenDetailSecond extends Component{
+
+    constructor(props){
+        super(props)
+    }
+
+    popSecond = () =>{
+        this.props.navigation.pop()
+    }
+
     render(){
         return(
-            <ScreenDetailSecondUI />
+            <ScreenDetailSecondUI handler1={this.popSecond}/>
         );
     }
 }

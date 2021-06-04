@@ -10,6 +10,7 @@ const LOGIN_STACK = {
 };
 
 const LANDING_STACK = {
+    SETTINGS: 'SETTINGS',
     FIRST_STACK: 'FIRST_STACK',
     SECOND_STACK: 'SECOND_STACK',
     THIRD_SCREEN: 'THIRD_SCREEN',
@@ -26,6 +27,12 @@ const SECOND_STACK = {
     DETAIL_SECOND_SCREEN: 'DETAIL_SECOND_SCREEN'
 };
 
+const DRAWER_LABEL ={
+    LABEL_HOME:'Home',
+    LABEL_SETTINGS: 'Settings',
+    LABEL_LOGOUT: 'Log Out'
+}
+
 const TAB = {
     STACK1: 'TAB_STACK1',
     STACK2: 'TAB_STACK2',
@@ -39,5 +46,6 @@ export default{
     LANDING_STACK,
     FIRST_STACK,
     SECOND_STACK,
-    TAB
+    TAB,
+    DRAWER_LABEL
 };

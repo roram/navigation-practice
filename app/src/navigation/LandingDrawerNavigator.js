@@ -1,11 +1,11 @@
 import React from 'react';
 import NavigatorConstant from './NavigatorConstant';
-import ScreenLanding from '../../ui/screens/landingScreen/ScreenLanding';
-import {createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList} from '@react-navigation/drawer';
+import {createDrawerNavigator, DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import { StackActions } from '@react-navigation/routers';
 import { useNavigation } from '@react-navigation/native';
+import LandingTabNavigator from './LandingTabNavigator'
 
-
+// ACA TENES QUE AGREGAR EL TAB BAR
 
 const logOut = (navigation) =>{
     navigation.dispatch(StackActions.replace(NavigatorConstant.NAVIGATOR.LOGIN_FLOW))
@@ -29,14 +29,14 @@ const LandingDrawerNavigator = () =>{
 
     return(
        
-            <Drawer.Navigator
-            drawerContent={()=><CustomDrawerContent navigation = {navigation}/>}
-            >
-                <Drawer.Screen
-                name={NavigatorConstant.LANDING_STACK.FIRST_STACK}
-                component={ScreenLanding}
-                />
-            </Drawer.Navigator>
+        <Drawer.Navigator
+        drawerContent={()=><CustomDrawerContent navigation = {navigation}/>}
+        >
+            <Drawer.Screen
+            name={NavigatorConstant.LANDING_STACK.FIRST_STACK}
+            component={LandingTabNavigator}
+            />
+        </Drawer.Navigator>
         
     );
 };

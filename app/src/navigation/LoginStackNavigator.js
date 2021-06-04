@@ -9,8 +9,6 @@ const Stack = createStackNavigator();
 
 const LoginStackNavigator = () =>{
 
-    console.log(NavigatorConstant.LOGIN_STACK.LOGIN_SCREEN)
-
     return(
         <Stack.Navigator>
             <Stack.Screen

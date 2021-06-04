@@ -1,25 +1,10 @@
-import { StackActions } from '@react-navigation/routers';
 import React, {useState} from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
-import NavigatorConstant from '../../../src/navigation/NavigatorConstant'
-import LandingDrawerNavigator from '../../../src/navigation/LandingDrawerNavigator'
 
-const ScreenLoginUI = ({navigation}) =>{
+const ScreenLoginUI = ({handler1, handler2, handler3}) =>{
 
     const [username, setUsername] = useState('');
     const [pass, setPass] = useState('');
-
-    const repLanding = () =>{
-        navigation.dispatch(StackActions.replace(NavigatorConstant.NAVIGATOR.LANDING_FLOW,LandingDrawerNavigator))
-    }
-
-    const navPassRec = () =>{
-        navigation.dispatch(StackActions.push(NavigatorConstant.LOGIN_STACK.PASSWORD_RECOVERY_SCREEN))
-    }
-
-    const navRegister = () =>{
-        navigation.dispatch(StackActions.push(NavigatorConstant.LOGIN_STACK.REGISTER_SCREEN))
-    }
 
     return(
         <View style={styles.screenContainer}>
@@ -29,6 +14,11 @@ const ScreenLoginUI = ({navigation}) =>{
             placeholder='Username'
             onChangeText={setUsername}
             text={username}
+            // This is an example we see in the class
+            // onEndEditing={handler2(username)}
+            // onPressIn={()=>handler2('onPressIn')}
+            // onPressOut={()=>handler2('onPressOut')}
+            // onFocus={()=>handler2('onFocus')}
             />
             <TextInput
             style={styles.inputStyle}
@@ -39,19 +29,20 @@ const ScreenLoginUI = ({navigation}) =>{
             />
             <Pressable
             style={styles.button}
-            onPress={repLanding}
+            onPress={handler1}
             >
                 <Text>Log In</Text>
             </Pressable>
+
             <Pressable
             style={styles.button}
-            onPress={navPassRec}
+            onPress={handler2}
             >
                 <Text>Password Recovery</Text>
             </Pressable>
             <Pressable
             style={styles.button}
-            onPress={navRegister}
+            onPress={handler3}
             >
                 <Text>Register</Text>
             </Pressable>

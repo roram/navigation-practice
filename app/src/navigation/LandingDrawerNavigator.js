@@ -4,8 +4,9 @@ import {createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemLi
 import { useNavigation } from '@react-navigation/native';
 import LandingTabNavigator from './LandingTabNavigator'
 import ScreenSettings from '../../ui/screens/screenSettings/ScreenSettings';
-// TODO: Agregar iconos a cada item del drawer y del tab nav y modificar los titles es todos los navegadores
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // ACA TENES QUE AGREGAR EL TAB BAR
 
@@ -18,8 +19,13 @@ const CustomDrawerContent = (props) =>{
     return(
         <DrawerContentScrollView >
             <DrawerItem
-            label={NavigatorConstant.DRAWER_LABEL.LABEL_HOME}
-            onPress={()=> props.navigation.closeDrawer()}
+            label={'Username 123'}
+            icon={
+                ({color, size, focused}) =><FontAwesome
+                name='user-circle-o'
+                color={'black'}
+                size={45}/>}
+            
             />
             <DrawerItemList
             {...props}
@@ -27,12 +33,19 @@ const CustomDrawerContent = (props) =>{
             <DrawerItem
             label={NavigatorConstant.DRAWER_LABEL.LABEL_LOGOUT}
             onPress={()=>logOut(props.navigation)}
+            icon={
+                () =><MaterialCommunityIcons
+                name='logout'
+                color='black'
+                size={20}
+                />
+                }
             />
         </DrawerContentScrollView>
     );
 }
 
-const LandingDrawerNavigator = () =>{
+const LandingDrawerNavigator = (props) =>{
 
     const navigation = useNavigation();
     const Drawer = createDrawerNavigator();
@@ -41,17 +54,34 @@ const LandingDrawerNavigator = () =>{
        
         <Drawer.Navigator
         drawerContent={ props => <CustomDrawerContent {...props}/>}
+        drawerContentOptions={{
+            title:'Titulo'
+        }}
+        useLegacyImplementation={true}
         >
             <Drawer.Screen
             name={NavigatorConstant.LANDING_STACK.FIRST_STACK}
             component={LandingTabNavigator}
             options={{
-                title:'Landing'
+                title:'Landing',
+                drawerIcon:({color, size, focused}) =><FontAwesome
+                name='home'
+                color={focused ? 'black' : 'gray'}
+                size={20}/>
             }}
+            
             />
             <Drawer.Screen
             name={NavigatorConstant.LANDING_STACK.SETTINGS}
             component={ScreenSettings}
+            options={{
+                title:'Settings',
+                drawerIcon:({color, size, focused}) => <Ionicons
+                name='settings-outline'
+                color={focused ? 'black': 'gray'}
+                size={20}
+                />
+            }}
             />
         </Drawer.Navigator>
         
